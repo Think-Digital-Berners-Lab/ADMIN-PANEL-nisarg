@@ -1,0 +1,330 @@
+<%include header%>
+
+<html>
+<head>
+        <title>projects</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Roboto+Condensed|Great+Vibes" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    />
+    <!--css for sidebar-->
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!--icons-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+    <!--css and js-->
+    <link rel="stylesheet" href="css/sponsor.css">
+    <script src="js/events.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      <!------ Include the above in your HEAD tag ---------->
+<style>
+    .projectDisplay {
+  overflow: auto;
+}
+
+    .animate{
+
+      animation: zoom 0.3s;
+
+    }
+
+    @keyframes zoom{
+
+      from {transform: scale(0)}
+        to {transform: scale(1)}
+    }
+
+    
+    a{
+
+      color:black;
+      
+    }
+
+    a:hover{
+      text-decoration: none
+    }
+</style>
+</head>
+<body style="background-color:#f1f2f6;">
+  
+  <div
+  class="sidenav"
+  style="font-family: 'Roboto Condensed', sans-serif;"
+  >
+  <center><h3  style="height: 30px;width: 100%;font-family:'Anton', sans-serif;color: #e74c3c">ADMIN PANEL</h3></center>
+  <hr />
+  <a href="http://localhost:3000/dashboard" class="btn btn-default"
+    ><i class="fas fa-home"></i>  Dashboard</a
+  >
+  <center><a href="http://localhost:3000/member" class="btn btn-default"><i class="fas fa-user-friends"></i><nbsp> Members</a></center>
+  
+  <a href="http://localhost:3000/project" class="btn btn-default"
+    ><i class="fas fa-project-diagram"></i> Projects</a
+  >
+  
+  <a href="http://localhost:3000/events" class="btn btn-default"><i class="fas fa-calendar-day"></i> Events</a>
+  
+  <a href="http://localhost:3000/sponsers" class="btn btn-default"
+    ><i class="fas fa-handshake"></i> Sponsors</a
+  >
+  <a href="http://localhost:3000/achievements" class="btn btn-default"><i class="fas fa-trophy"></i> Achievements</a>
+  <a href="http://localhost:3000/inventory" class="btn btn-default"><i class="fas fa-boxes"></i> Inventory</a>
+  <a href="http://localhost:3000/table" class="btn btn-default"><i class="fas fa-table"></i> Table</a>
+  <a href="http://localhost:3000/logout" class="btn btn-danger" style="color:white;text-align: left" >logout</a>
+  </div>
+  <center><h1 style="font-family: 'Julius Sans One', sans-serif;color:black;margin-top: 50px;font-size: 45px;padding-left: 200px">PROJECTS</h1></center>
+  <hr style="margin-top: 20px;margin-left: 45%;width: 350px">
+  <a href="#!" onclick="document.getElementById('add_project').style.display='block';"><i class="fas fa-plus-square fa-2x" style="margin-left:65% "></i></a>
+  <div class="envelope" style="position: absolute;margin-left:29%;margin-top: 1%;width:60%">
+    
+    <div class="row" style="position: absolute;left:8%;width:90%">
+    <% project.forEach((project,index)=>{ %>  
+      
+    <% if((index+1)%2!=0 && (index+1)%3!=0){ %>
+    <div class="project_display" style="width: 20%;height:250px;border-radius:20px 20px 20px 20px;margin-bottom: 15px ;margin-right:20px;background-color: #FFC312 ">
+      <center><a href="project_desc.html" style="color: black"><b><p style="font-family: 'Julius Sans One', sans-serif;font-size:3vw;margin-top: 25px"><%=project.project_name%></p></b></a></center>
+      
+      <a href="http://localhost:3000/delete/<%=project.project_name%>"><i class="fas fa-trash-alt fa-3x" style="position: relative;margin-top: 15%;left: 45%;color:#e84118"></i></a>
+      
+    </div>
+    <%}%>
+      
+     <% if((index+1)%2==0 &&(index+1)%3!=0){%>
+      <div class="project_display" style="width: 20%;height:250px;margin-bottom: 15px;border-radius:20px 20px 20px 20px ;margin-right:20px;background-color: #F79F1F">
+        <center><a href="project_desc.html" style="color: black"><b><p style="font-family: 'Julius Sans One', sans-serif;font-size:3vw;margin-top: 25px"><%=project.project_name%></p></b></a></center>
+        <a href="http://localhost:3000/delete/<%=project.project_name%>"><i class="fas fa-trash-alt fa-3x" style="position: relative;margin-top: 15%;left: 45%;color:#e84118"></i></a>
+        
+      </div>
+      <% }%>
+      <% if((index+1)%3==0 && (index+1)%2!=0){ %>
+        <div class="project_display" style="width: 20%;height:250px;margin-bottom: 15px;border-radius:20px 20px 20px 20px ;margin-right:20px;background-color: #EE5A24 ">
+          <center><a href="project_desc.html" style="color: black"><b><p style="font-family: 'Julius Sans One', sans-serif;font-size:3vw;margin-top: 25px"><%=project.project_name%></p></b></a></center>
+          <a href="http://localhost:3000/delete/<%=project.project_name%>"><i class="fas fa-trash-alt fa-3x" style="position: relative;margin-top: 15%;left: 45%;color:#e84118"></i></a>
+          
+        </div>
+      <% } %>
+      
+    <% }); %>
+      
+    
+  </div>
+  </div>
+
+  <div class="animate" id="add_project" style="display: none;position: absolute;  top:17%;width:100%;height:85%;background-color:#f1f2f6">
+
+    <form
+            id="project_form"
+            action="/add_new_project"
+            method="POST"
+            style="width: 30%;margin-left: 40%"
+          >
+            <div class="form-group">
+              <label for="project_name1">project_name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="project_name1"
+                name="project_name1"
+                required
+              />
+             
+            </div>
+
+            <div class="form-group">
+              <label for="project_description1">project_description</label><br />
+              <textarea
+                name="project_description1"
+                id="project_description1"
+                cols="80"
+                rows="5"
+              ></textarea>
+            </div>
+            <h2>Team Members</h2>
+            <div class="form-group">
+              <label for="member_1">member1</label>
+              <input
+                type="text"
+                class="form-control"
+                id="member_1"
+                name="member_1"
+              />
+              
+            </div>
+            <div class="form-group">
+              <label for="member_2">member2</label>
+              <input
+                type="text"
+                class="form-control"
+                id="member_2"
+                name="member_2"
+              />
+              
+            </div>
+
+            <div class="form-group">
+              <label for="member_3">member3</label>
+              <input
+                type="text"
+                class="form-control"
+                id="member_3"
+                name="member_3"
+              />
+              
+            </div>
+
+            
+
+            <button class="btn btn-info">Submit</button>
+          </form>
+  </div>
+  
+ 
+    <br><br>
+  
+  <script>
+    
+    addEventListener('load',()=>{
+
+      alert("Click on any project");
+    })
+
+    
+
+    document.getElementById('project_form').addEventListener('submit',()=>{
+
+      document.getElementById('add_project').style.display = 'none';
+    })
+
+    
+  </script>
+    
+
+    <!--to display the description of the -->
+<!-- right nav bar 
+<div class="sidenav1" style="font-family:'Anton', sans-serif;">
+<a href="http://localhost:3000/add_new_project" class="btn btn-default">add new project</a>
+<button class="btn btn-danger" ><a href="http://localhost:3000/logout" style="color:white">logout</a></button> 
+
+</div>-->
+  <br><br>
+
+<!-- project display table
+<div class="container">
+ <br>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class=" col-10">
+        <% project.forEach((project)=>{ %>
+       
+        <div class="col-sm-3">
+            <h1 style="font-family:'Anton', sans-serif">Project</h3>
+              <br>
+            <%if(project.pimg7!=null){%>
+            <img src="http://localhost:3000/images/<%=project.pimg7%>"style="width:100px;height:80px;"  class="img-square img-responsive">
+            <%};%>
+            <a href="http://localhost:3000/upload_image1/<%=project.project_name%>"class="btn btn-dark">Upload Image</a>
+            <br><br><h4><%=project.project_name%></h4>
+            <br><br><br>
+        </div>
+        <div class="col-sm-5">
+            <h1 style="font-family:'Anton', sans-serif">Project Desciption</h1>
+                <br>
+                <h5><%=project.project_description%>%></h5></div>
+            
+        <div class="col-sm-3">  
+            <h1 style="font-family:'Anton', sans-serif">Member list</h1>
+               <br> <ul>
+                    <%if(project.member1!=0){%>
+                    <li>
+                      <%if(project.pimg1!=0){%>
+                        <img src="http://localhost:3000/images/<%=project.pimg1%>"style="width:30px;height:30px;" class="pro"  class="img-circle img-responsive">&nbsp;
+                        <%};%>
+                        <a href="http://localhost:3000/upload_image2/<%=project.project_name%>"class="btn btn-dark">Upload Image</a>
+                        <h5><%=project.member1%></h5> 
+                        
+                    </li>
+                    <%};%>
+                    <br>
+                    <%if(project.member2.length>0){%>
+                    <li>
+                        <%if(project.pimg2!=0){%>
+                          <img src="http://localhost:3000/images/<%=project.pimg2%>"style="width:30px;height:30px;" class="pro"  class="img-circle img-responsive">&nbsp;
+                          <%};%>
+                          <a href="http://localhost:3000/upload_image3/<%=project.project_name%>"class="btn btn-dark">Upload Image</a>
+                          <h5><%=project.member2%></h5> 
+                          
+                      </li>
+                      <%};%>
+                    <br>
+                    <%if(project.member3.length>0){%>
+                    <li>
+                        <%if(project.pimg3!=0){%>
+                          <img src="http://localhost:3000/images/<%=project.pimg3%>"style="width:30px;height:30px;" class="pro"  class="img-circle img-responsive">&nbsp;
+                          <%};%>
+                          <a href="http://localhost:3000/upload_image4/<%=project.project_name%>"class="btn btn-dark">Upload Image</a>
+                          <h5><%=project.member3%></h5> 
+                          
+                      </li>
+                      <%};%>
+                    <br>
+                    <%if(project.member4.length>0){%>
+                      <li>
+                          <%if(project.pimg4!=0){%>
+                            <img src="http://localhost:3000/images/<%=project.pimg4%>"style="width:30px;height:30px;" class="pro"  class="img-circle img-responsive">&nbsp;
+                            <%};%>
+                            <a href="http://localhost:3000/upload_image5/<%=project.project_name%>"class="btn btn-dark">Upload Image</a>
+                            <h5><%=project.member4%></h5> 
+                            
+                        </li>
+                        <%};%>
+                    <br>
+                    <%if(project.member5.length>0){%>
+                      <li>
+                          <%if(project.pimg5!=0){%>
+                            <img src="http://localhost:3000/images/<%=project.pimg5%>"style="width:30px;height:30px;" class="pro"  class="img-circle img-responsive">&nbsp;
+                            <%};%>
+                            <a href="http://localhost:3000/upload_image6/<%=project.project_name%>"class="btn btn-dark">Upload Image</a>
+                            <h5><%=project.member5%></h5> 
+                            
+                        </li>
+                        <%};%>
+                    <br>
+                    <%if(project.member6.length>0){%>
+                      <li>
+                          <%if(project.pimg6!=0){%>
+                            <img src="http://localhost:3000/images/<%=project.pimg6%>"style="width:30px;height:30px;" class="pro"  class="img-circle img-responsive">&nbsp;
+                            <%};%>
+                            <a href="http://localhost:3000/upload_image7/<%=project.project_name%>"class="btn btn-dark">Upload Image</a>
+                            <h5><%=project.member6%></h5> 
+                            
+                        </li>
+                        <%};%>
+                    <br>
+                    
+                </ul>
+            </div>
+          <div class="col-sm-1"><br>
+            <a href="http://localhost:3000/update_project/<%=project.project_name%>"class="btn btn-warning" style="width: 100px;height: 25px;margin-top: 50px;margin-bottom: 5px;color:#2f3542">Update</a>
+            <a href="http://localhost:3000/delete/<%=project.project_name%>"class="btn btn-danger" style="width: 100px;height: 25px;color: #2f3542">Delete</a>
+          </div>
+            <% }); %>
+            
+</div>
+</div>
+-->
+</body>
+</html> 
+
+
+<%include footer%>

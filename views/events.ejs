@@ -1,0 +1,199 @@
+<%include header%>
+
+<html>
+<head>
+        <title>Events</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Roboto+Condensed" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    />
+    <!--css for sidebar-->
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!--icons-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <!--css and js-->
+    <link rel="stylesheet" href="css/sponsor.css">
+    <script src="js/events.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      <!------ Include the above in your HEAD tag ---------->
+  <style>
+      .animate{
+
+        animation: zoom 0.5s;
+      }
+      @keyframes zoom{
+
+        from {transform: scale(0)}
+        to {transform: scale(1)}
+      }
+  </style>
+</head>
+<body style="background-color:#f1f2f6;">
+<!-- left nav bar -->
+<div
+class="sidenav"
+style="font-family: 'Roboto Condensed', sans-serif;"
+>
+<center><h2 style="font-family:'Anton', sans-serif;color: #e74c3c">ADMIN PANEL</h2></center>
+<hr />
+<a href="http://localhost:3000/dashboard" class="btn btn-default"
+  ><i class="fas fa-home"></i>  Dashboard</a
+>
+<center><a href="http://localhost:3000/member" class="btn btn-default"><i class="fas fa-user-friends"></i><nbsp> Members</a></center>
+
+<a href="http://localhost:3000/project" class="btn btn-default"
+  ><i class="fas fa-project-diagram"></i> Projects</a
+>
+
+<a href="http://localhost:3000/events" class="btn btn-default"><i class="fas fa-calendar-day"></i> Events</a>
+
+<a href="http://localhost:3000/sponsers" class="btn btn-default"
+  ><i class="fas fa-handshake"></i> Sponsors</a
+>
+<a href="http://localhost:3000/achievements" class="btn btn-default"><i class="fas fa-trophy"></i> Achievements</a>
+<a href="http://localhost:3000/inventory" class="btn btn-default"><i class="fas fa-boxes"></i> Inventory</a>
+<a href="http://localhost:3000/table" class="btn btn-default"><i class="fas fa-table"></i> Table</a>
+<a href="http://localhost:3000/logout" class="btn btn-danger" style="color:white;text-align: left" >logout</a>
+</div>
+
+
+
+</div>
+  <br><br>
+
+
+<!--events display-->  
+
+<div class="container">
+    <center><h1 style="font-family: 'Julius Sans One', sans-serif;color:black;font-size: 45px;padding-left: 200px">EVENTS</h1></center>
+    <hr style="position:absolute;left:48%;width: 250px">
+    <a href="#!" onclick="getElementById('addEvent').style.display='block'" style="color:black"><i class="fas fa-plus-square fa-2x" style="padding-left:65%;margin-top: 25px"></i></a> <i class="fas fa-edit fa-2x" style="margin-left: 10px"></i>
+ <br>
+    <div class="row" style="padding-left:200px;margin-top: 40px">
+        
+        <% event.forEach((event,index)=>{ %>
+        <div class="card" style="width:25rem;margin-bottom: 50px">
+          <img class="card-img-top" src="http://localhost:3000/images/<%=event.event_pic%>" alt="Card image cap" style="height:20rem;width:25rem">
+          <div class="card-body" style="background-color:#ecf0f1">
+            <h5 class="card-title"><%=event.event_name%></h5>
+            <p class="card-text">From: <%=event.event_sd%><br>To: <%=event.event_ed%></p>
+            <a href="event_desc.html" class="btn btn-primary">To event</a>
+          </div>
+        </div>
+        <% if((index+1)%3!=0){%>
+        <div class="col-1"></div>
+        <% } %>
+        <% }); %>
+        
+        <!--<div class=" col-10" style="">
+       
+        <table class="table table-borderless"  style="margin-top:30px;">
+             
+            <tr>
+                <th>serial no </th>
+                <th>event name </th>
+                <th>event start date </th>
+                <th>event end date </th>
+                <th>event link </th>
+                <th>event image </th>
+            </tr>
+           <% event.forEach((event,index)=>{ %>
+            <tr>
+                <td><%=index+1%></td>
+                <td><%=event.event_name%></td>
+                <td><%=event.event_sd%></td>
+                <td><%=event.event_ed%></td>
+                <td><a href="<%=event.event_link%>"><%=event.event_name%></a></td>
+                <td><img src="http://localhost:3000/images/<%=event.event_pic%>" style="max-width:40px;" alt=""></td>
+                
+            </tr>
+            <% }); %>
+        </table>
+          
+            
+            
+</div>-->
+</div>
+<!--addEventsWindow-->
+
+<div class="modal-wrapper animate" id="addEvent" style="position:fixed;left:43%;top:15%;height:400px;width:400px;background-color:#95afc0;display: none">
+   <a href="#!" style="color:black" onclick="getElementById('addEvent').style.display = 'none'"><i class="far fa-times-circle fa-2x" style="position:absolute;left:85%;margin-top:10px"></i></a> 
+    <h2 style="position:absolute;margin-left:140px;margin-top:20px">ADD EVENT</h2>
+   <form action="/add_new_event" method="POST" enctype="multipart/form-data" style="position:absolute;width:80%;margin-left:30px;margin-top: 80px">
+   <div class="form-group">
+     <label for="event_name">event name</label>
+     <input
+       type="text"
+       class="form-control"
+       id="event_name"
+       name="event_name"
+       
+     />
+    
+   </div>
+   <div class="form-group">
+     <label for="event_sd">event start date</label>
+     <input
+     type="text"
+       class="form-control"
+       id="event_sd"
+       name="event_sd"
+       
+     />
+    
+   </div>
+   <div class="form-group">
+       <label for="event_ed">event end date</label>
+       <input
+       type="text"
+         class="form-control"
+         id="event_ed"
+         name="event_ed"
+         
+       />
+      
+     </div>
+     <div class="form-group">
+       <label for="event_link">event link</label>
+       <input
+         type="text"
+         class="form-control"
+         id="event_link"
+         name="event_link"
+         
+       />
+      
+     </div>   
+     <div class="form-group">
+         <label for="event_pic">event Image</label>
+         <input
+           type="file"
+           class="form-control"
+           id="event_pic"
+           name="event_pic"
+           required
+         />
+        
+       </div>            
+   
+
+   <button class="btn btn-info">add event</button>
+ </form>
+
+  </div>
+</body>
+</html> 
+
+
+<%include footer%>

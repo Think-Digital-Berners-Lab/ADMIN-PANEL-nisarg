@@ -1,0 +1,139 @@
+<%include header%>
+
+<html>
+  <head>
+    <title>Sponsors</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Roboto+Condensed" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!--css for sidebar-->
+    <link rel="stylesheet" href="css/sidebar.css">
+    <!--icons-->
+    <link rel="stylesheet" href="css/sponsor.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="js/sponsors.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    
+  </head>
+  <body style="background-color:#f1f2f6;">
+    
+      
+    
+    
+    <!-- left nav bar -->
+    <div
+      class="sidenav"
+      style="font-family: 'Roboto Condensed', sans-serif;"
+    >
+      <center><h2 style="font-family:'Anton', sans-serif;color: #e74c3c">ADMIN PANEL</h2></center>
+      <hr />
+      <a href="http://localhost:3000/dashboard" class="btn btn-default"
+        ><i class="fas fa-home"></i>  Dashboard</a
+      >
+      <center><a href="http://localhost:3000/member" class="btn btn-default"><i class="fas fa-user-friends"></i><nbsp> Members</a></center>
+
+      <a href="http://localhost:3000/project" class="btn btn-default"
+        ><i class="fas fa-project-diagram"></i> Projects</a
+      >
+
+      <a href="http://localhost:3000/events" class="btn btn-default"><i class="fas fa-calendar-day"></i> Events</a>
+
+      <a href="http://localhost:3000/sponsers" class="btn btn-default"
+        ><i class="fas fa-handshake"></i> Sponsors</a
+      >
+      <a href="http://localhost:3000/achievements" class="btn btn-default"><i class="fas fa-trophy"></i> Achievements</a>
+      <a href="http://localhost:3000/inventory" class="btn btn-default"><i class="fas fa-boxes"></i> Inventory</a>
+      <a href="http://localhost:3000/table" class="btn btn-default"><i class="fas fa-table"></i> Table</a>
+      <a href="http://localhost:3000/logout" class="btn btn-danger" style="color:white;text-align: left" style="position:absolute;top: 40%">logout</a>
+    </div>
+
+    
+    <!-- marketing and sponsor team -->
+    <div class="envelope_team" style="position:absolute;left:15%;width:83%;">
+        <center><img src="images/thinkDigital.png" style="margin-bottom:20px"></center>
+        <div class="member_info" style="position:absolute;border-radius:20px 20px 20px 20px;width:100%;background-color:#f6e58d"><center><b><p style="font-family: 'Julius Sans One', sans-serif;font-size:40px">Sponsorship and Marketing Team</p></b></center><br>
+          <div class="row" style="padding-left:100px">
+            <div class="col-sm-3 " >
+                <a href="#!" onclick="descHide1()"> <div class="rounded-circle desc" id="desc1"  style="position:absolute;height:210px;width:210px;background-color: black"><b><p style="position:absolute;top:50%;padding-left: 10px;font-size: 20px;color:white"> Demo1</p></b> </div></a><a href="#!" onclick="descShow1()"><img src="images/A.png" id="box1" class="rounded-circle"  style="height:210px;width:210px;border: 5px solid black"></a><br><br>
+                <a href="#!" onclick="descHide4()"><div class="rounded-circle desc" id="desc4"  style="position:absolute;height:210px;width:210px;background-color: black"><b><p style="position:absolute;top:50%;padding-left: 10px;font-size: 20px;color:white"> Demo4</p></b></div></a><a href="#!" onclick="descShow4()"><img src="images/A.png" id="box4" class="rounded-circle"  style="height:210px;width:210px;border: 5px solid black"></a> 
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-3" >
+              <a href="#!" onclick="descHide2()"><div class="rounded-circle desc" id="desc2" style="position:absolute;height:210px;width:210px;background-color: black"><b><p style="position:absolute;top:50%;padding-left: 10px;font-size: 20px;color:white"> Demo2</p></b></div></a><a href="#!" onclick="descShow2()"><img src="images/A.png" class="rounded-circle" id="box2" style="height:210px;width:210px;border: 5px solid black"></a> <br><br>
+              <a href="#!" onclick="descHide5()"><div class="rounded-circle desc" id="desc5" style="position:absolute;height:210px;width:210px;background-color: black"><b><p style="position:absolute;top:50%;padding-left: 10px;font-size: 20px;color:white"> Demo5</p></b></div></a><a href="#!" onclick="descShow5()"><img src="images/A.png" class="rounded-circle" id="box5" style="height:210px;width:210px;border: 5px solid black"></a> </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-3" ><a href="#!" onclick="descHide3()"><div class="rounded-circle desc" id="desc3" style="position:absolute;height:210px;width:210px;background-color: black"><b><p style="position:absolute;top:50%;padding-left: 10px;font-size: 20px;color:white"> Demo3</p></b></div></a><a href="#!" onclick="descShow3()"><img src="images/A.png" class="rounded-circle" id="box3"  style="height:210px;width:210px;border: 5px solid black"></a><br><br></div>
+            
+          
+          </div>
+        </div>
+    </div>
+
+    <br />
+    
+    <br />
+    
+    <hr style="position:absolute;top:105%;left:27%;width:60%;height: 2px;background-color: black">
+    <br>
+    <div class="envelope_sponsors" style="position:absolute;top:115%;left: 15%;width: 83%;border-radius:20px 20px 20px 20px;">
+      <center><b><p style="font-family: 'Julius Sans One', sans-serif;font-size:40px">MAIN SPONSOR</p></b></center><br>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Logo_Google_2013_Official.svg/1280px-Logo_Google_2013_Official.svg.png" style="position:absolute;height:20%;width:25%;left: 38%;margin-top: 10px"><br><br>
+      <hr style="margin-top:220px"> <br><br><br> <center><b><p style="font-family: 'Julius Sans One', sans-serif;font-size:40px">EVENT SPONSOR</p></b></center>
+      <div class="row" style="padding-left:100px">
+        
+        
+        <% sponser.forEach((sponsers,index)=>{ %>
+          
+        <div class="col-sm-3">
+          <div class="event_sponsor" style="opacity: 0.4;visibility: hidden;" id="desc<%= index+6 %>"><b><p style="position:absolute;top:70%;color:white;font-size:20px"><%=sponsers.name%></p> </b> </div><a href="#"><img src="http://localhost:3000/images/<%=sponsers.logo%>" style="height:250px;width:270px;margin-bottom: 50px" onmouseover="document.getElementById('desc<%= index+6 %>').visibility = 'visible'"> </a>
+        </div>
+        <div class="col-sm-1"></div>
+        
+        <% }); %>        
+        
+        
+      </div>
+    </div>
+    
+    <!--<div class="container" style="position:absolute;top:45%;left: 10%;">
+      <br />
+      <div class="row">
+        <div class="col-1"></div>
+
+        <% sponser.forEach((sponsers)=>{ %>
+
+        <img
+          src="http://localhost:3000/images/<%=sponsers.logo%>"
+          style="width:200px;height:160px;margin-right:10px;margin-left:20px;margin-bottom: 30px"
+          class="img-square img-responsive"
+        />
+        <div class="row">p><%=sponsers.name%><p></div> //this is a coment
+        <h5><%=sponsers.name%></h5>
+
+        <% }); %>
+
+        <div class="col-sm-3"></div>
+      </div>
+    </div>-->
+
+
+    <script>
+        
+        
+    </script>
+  </body>
+</html>
+
+<%include footer%>
